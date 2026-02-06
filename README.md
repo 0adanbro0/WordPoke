@@ -10,8 +10,8 @@ WordPoke is a minimalist and daring clone of the legendary game Wordle, created 
 *   **Hardcore Mode:** You have only **6 attempts** to crack the code. Think before you poke!
 
 ### 🛠 Tech Stack
-*   **Language:** [TypeScript](https://www.typescriptlang.org) (Type-safe poking)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com) (Clean & Modern UI)
+*   **Language:** [Vite](https://vite.dev) + [TypeScript](https://www.typescriptlang.org)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com)
 *   **Structure:** HTML5 Semantic Markup
 
 ### ⌨️ Development
