@@ -1,5 +1,5 @@
-import RUWORDS from "../database_folder/database_folder.database.js"
-import getRandomInt from "../lib/lib.random.js"
+import RUWORDS from "../database_folder/database_folder.database.ts"
+import getRandomInt from "../lib/lib.random.ts"
 
 let hiddendefaultWord = RUWORDS[getRandomInt(0, RUWORDS.length - 1)];
 let HIDDENCHARS:string[] = [];
