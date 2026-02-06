@@ -1,0 +1,198 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.letter-tile {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 5px;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+    animation: popIn 0.3s ease forwards;
+}
+
+body {
+    background-color: #252222;
+    color: #312e2b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.communicationWithUser-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer{
+    width: 100%;
+    height: 50px;
+}
+
+.communicationWithUser{
+    width: 260px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Сетка игры (контейнер для букв) */
+.frame {
+    width: 260px;
+    height: 300px;
+    border: 2px solid #1e8449;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+/* Стилизация каждой ячейки буквы (добавь этот класс в JS при создании div) */
+.tile {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Поле ввода и кнопка */
+.inputUserWord {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Стилизация только после того, как пользователь начал ввод */
+.shake {
+    border: 2px solid red;
+  animation: shake 0.3s; /* Можно добавить тряску */
+}
+
+#buttonUserWord {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #538d4e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px rgb(13, 88, 44);
+}
+
+#buttonUserWord:hover {
+    background: #6aaa64;
+    transform: translateY(-2px);
+    box-shadow: 0 4px #1e8449;
+}
+
+/* Модальное окно (Dialog) */
+#modal {
+    border: none;
+    border-radius: 20px;
+    background: #1a1a1b;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+
+#modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Та самая "красивая кнопка" в модальном окне */
+#PlayAgainBtn {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+    background: #27ae60;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px #1e8449; /* 3D эффект */
+    transition: all 0.1s;
+    margin-top: 20px;
+}
+
+#PlayAgainBtn:hover {
+    background: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 8px #1e8449;
+}
+
+#PlayAgainBtn:active {
+    box-shadow: 0 2px #1e8449;
+    transform: translateY(4px);
+}
+
+#statusInfo {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffd700; /* Золотистый цвет для победы */
+}
+
