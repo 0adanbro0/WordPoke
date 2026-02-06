@@ -13,6 +13,7 @@ document.getElementById('buttonUserWord')?.addEventListener("click", ()=>{
     let inputUserdefaultWord:HTMLInputElement;
 
     inputUserdefaultWord = document.querySelector('.inputUserWord') as HTMLInputElement;
+    if (!inputUserdefaultWord) return;
 
     if(RUWORDS.includes(inputUserdefaultWord.value)){
         UserTries--;
@@ -48,10 +49,8 @@ function Main(){
 }
 
 function SplitArrays(){
-    if (!hiddendefaultWord) {
-        console.error("Контейнер hiddendefaultWord не найден!");
-        return; 
-    }
+    if (!hiddendefaultWord) return; 
+
     HIDDENCHARS = hiddendefaultWord.toLowerCase().split("");
     console.log(`fixed hidden array : [${HIDDENCHARS}]`);
 
@@ -61,10 +60,8 @@ function SplitArrays(){
 
 function DistributionColors(){
     const parentDiv = document.getElementById('frame-container');
-    if (!parentDiv) {
-        console.error("Контейнер parentDiv не найден!");
-        return; 
-    }
+    if (!parentDiv) return; 
+
     const newParagraph:HTMLElement = document.createElement('div');
     USERCHARS.forEach((char:string, i:number) => {
         const row = document.createElement('p');
@@ -91,10 +88,7 @@ function DistributionColors(){
 
 function CheckForWin(){
 
-    if(!hiddendefaultWord){
-        console.error("Контейнер hiddendefaultWord не найден!");
-        return;
-    }
+    if(!hiddendefaultWord) return;
 
     const isWin = defaultUserWord.toLowerCase() === hiddendefaultWord.toLowerCase();
     if(isWin || UserTries === 0) ShowDialog()
@@ -109,11 +103,7 @@ function RestartGame(){
     UserTries = 6;
 
     const parentDiv = document.getElementById('frame-container');
-
-    if (!parentDiv) {
-        console.error("Контейнер parentDiv не найден!");
-        return; 
-    }
+    if (!parentDiv) return; 
 
     parentDiv.innerHTML = '';
 
@@ -123,10 +113,8 @@ function RestartGame(){
 function ShowDialog(){
     let dialog = document.querySelector('dialog');
     let status = document.getElementById('statusInfo');
-    if(!dialog || !status){
-        console.error("Контейнер dialog не найден!");
-        return;
-    }
+    if(!dialog || !status) return;
+
     UserTries == 0 ? status.innerHTML = `Упс, почти! 🧩<br> было загадано "${hiddendefaultWord}"` : status.innerHTML = 'Гениально. Вы разгадали слово, как истинный мастер! 🌟'
 
     dialog.showModal();
